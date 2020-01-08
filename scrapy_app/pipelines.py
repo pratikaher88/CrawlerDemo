@@ -40,8 +40,8 @@ class ScrapyAppPipeline(object):
 
     #     self.conn = psycopg2.connect(DATABASE_URL)
 
-    # def open_spider(self,spider):
-        # spider.started_on = datetime.now()
+    def open_spider(self,spider):
+        spider.started_on = datetime.now()
 
 
 
@@ -93,6 +93,28 @@ class ScrapyAppPipeline(object):
     def close_spider(self, spider):
 
         # work_time = datetime.now() - spider.started_on (Time to Crawl)
+
+        end_time = datetime.now() - spider.started_on
+
+        session = self.Session()
+
+        time_to_crawl = TimeToCrawl()
+
+        time_to_crawl.job_data_id = spider.job_data_id
+
+        time_to_crawl.domain_name = spider.domain
+
+        time_to_crawl.time_to_crawl = end_time
+
+        try:
+                session.add(time_to_crawl)
+                session.commit()
+
+        except:
+                session.rollback()
+                raise
+
+        session.close()
 
 
         session = self.Session()
@@ -174,13 +196,6 @@ class ScrapyAppPipeline(object):
         # print("Quote",quote)    
 
         session.close()
-
-        session = self.Session()
-
-        
-
-
-
 
     
     # work_time = datetime.now() - spider.started_on

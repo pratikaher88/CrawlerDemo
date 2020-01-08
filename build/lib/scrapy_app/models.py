@@ -35,6 +35,12 @@ class URL_details(Base):
     total_score = Column('total_score', Text())
 
 
+class TimeToCrawl(Base):
+    __tablename__ = "main_timetocrawl"
 
+    id = Column(Integer, primary_key=True)
+    job_data_id = Column('job_data_id', Integer())
+    domain_name = Column('domain_name', Text())
+    time_to_crawl = Column('time_to_crawl', Text())
 
 
