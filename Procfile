@@ -1,1 +1,1 @@
-web: scrapyd
+woker: scrapyd
