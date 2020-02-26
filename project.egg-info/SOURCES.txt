@@ -6,10 +6,14 @@ project.egg-info/dependency_links.txt
 project.egg-info/entry_points.txt
 project.egg-info/top_level.txt
 scrapy_app/__init__.py
+scrapy_app/celeryconfig.py
+scrapy_app/djangoitem.py
 scrapy_app/items.py
 scrapy_app/middlewares.py
 scrapy_app/models.py
 scrapy_app/pipelines.py
+scrapy_app/retry_mechanism.py
 scrapy_app/settings.py
+scrapy_app/tasks.py
 scrapy_app/spiders/__init__.py
 scrapy_app/spiders/toscrapecss.py

@@ -9,26 +9,23 @@ import re
 
 
 class ToScrapeCSSSpider(CrawlSpider):
-    name = "toscrape-css"
+    name = "toscrapespiderax"
 
     def __init__(self, *args, **kwargs):
+        self.job_data_id = kwargs.get('job_data_id', '1111')
         self.url = kwargs.get('url', "https://lovdata.no/")
-        # self.domain = kwargs.get('domain', "lovdata.no")
         self.domain = urlparse(self.url).netloc
         self.start_urls = [self.url]
         self.allowed_domains = [self.domain]
-        self.job_id = kwargs.get('job_data_id', '1111')
         # self.custom_settings = {'CLOSESPIDER_PAGECOUNT': 10}
         self.regex_string = r'.*'+re.escape(self.domain)+ r'.*'
         ToScrapeCSSSpider.rules = [Rule(LinkExtractor(allow=(self.regex_string)), callback='parse_item', follow=True)]
         
         super(ToScrapeCSSSpider, self).__init__(*args, **kwargs)
 
-    def parse_item(self, response):
-
-        
+    def parse_item(self, response):    
         yield {
-            'text' : response.url
+            'extracted_url' : response.url
         }
 
     # @classmethod

@@ -13,7 +13,10 @@
 # This is required only if Django Version > 1.8
 
 # DATABASE_URL = 'postgres://tbvwhrzdogjpxp:bcc1c4d6c2f0b3904fced90b773fcab2ea77ae80f11b9126eb8421dd271a6415@ec2-107-22-195-114.compute-1.amazonaws.com:5432/d2c5re4ar3rrqv'
+
 DATABASE_URL = 'postgres://oycwhsjvhddhcl:f2e09305580a6190aaad8b8190cee847cf9e543734495f23639a0e64df5f4153@ec2-174-129-255-7.compute-1.amazonaws.com:5432/d6hilf2cnuv69l'
+
+# SECRET_KEY = '8lu*6g0lg)9z!ba+a$ehk)xt)x%rxgb$i1&amp;022shmi1jcgihb*'
 
 BOT_NAME = 'scrapy_app'
 
@@ -102,3 +105,4 @@ SCHEDULER_ORDER = 'BFO'
 SCHEDULER_DISK_QUEUE = 'scrapy.squeues.PickleFifoDiskQueue'
 SCHEDULER_MEMORY_QUEUE = 'scrapy.squeues.FifoMemoryQueue'
 
+CELERY_BROKER_URL = 'amqp://localhost'

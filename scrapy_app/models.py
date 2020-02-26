@@ -9,10 +9,7 @@ Base = declarative_base()
 
 
 def db_connect():
-
     return create_engine(get_project_settings().get("DATABASE_URL"))
-
-
 
 
 class Quote(Base):
