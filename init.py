@@ -1,4 +1,4 @@
-import os
+import os,io
 
 PORT = os.environ['PORT']
 with io.open("scrapyd.conf", 'r+', encoding='utf-8') as f:

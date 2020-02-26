@@ -1,4 +1,4 @@
-import os
+import os.io
 # os.environ['CELERY_CONFIG_MODULE'] = 'sdtcrawler.celeryconfig'
 
 
