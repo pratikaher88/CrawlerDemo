@@ -1,1 +1,1 @@
-woker: scrapyd
+worker: scrapyd
